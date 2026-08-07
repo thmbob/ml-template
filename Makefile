@@ -1,4 +1,4 @@
-.PHONY: env update format lint test
+.PHONY: env update format lint test train
 
 # Créer l'environnement localement
 env:
