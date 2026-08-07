@@ -1,0 +1,33 @@
+channels:
+  - pytorch
+  - nvidia
+  - pyg
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  # Machine Learning & GPU
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=12.1
+  - pyg
+  # Data & Math
+  - numpy
+  - pandas
+  - scikit-learn
+  - scipy
+  - sympy
+  - mpmath
+  - pulp
+  # Visualisation & Logs
+  - matplotlib
+  - seaborn
+  - jupyterlab
+  - tqdm
+  - rich
+  # Outils de dev (Analyse statique, Formatage, Tests)
+  - pytest
+  - ruff
+  - mypy
+  - pre-commit

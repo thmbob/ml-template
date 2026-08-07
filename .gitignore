@@ -1,0 +1,73 @@
+# ==========================================
+# 1. Environnements virtuels & Secrets
+# ==========================================
+.conda/
+env/
+venv/
+.env
+.env.*
+
+# ==========================================
+# 2. Caches Python & Outils d'analyse
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# ==========================================
+# 3. Machine Learning (Données & Modèles)
+# ==========================================
+# Ne jamais versionner les datasets bruts ou traités
+data/
+datasets/
+
+# Ne jamais versionner les poids des modèles
+models/
+checkpoints/
+*.pt
+*.pth
+*.h5
+*.hdf5
+*.onnx
+*.safetensors
+
+# ==========================================
+# 4. Logs & Expérimentations (Tracking)
+# ==========================================
+logs/
+*.log
+tb_logs/
+wandb/
+mlruns/
+lightning_logs/
+
+# ==========================================
+# 5. Jupyter Notebooks
+# ==========================================
+.ipynb_checkpoints/
+
+# ==========================================
+# 6. Build & Packaging
+# ==========================================
+build/
+dist/
+*.egg-info/
+
+# ==========================================
+# 7. OS & Éditeurs
+# ==========================================
+.DS_Store
+*~
+*.swp
+*.swo
+
+# VS Code : ignorer l'état local, mais forcer le versioning de nos fichiers de configuration
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
