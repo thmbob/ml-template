@@ -39,6 +39,7 @@ checkpoints/
 # ==========================================
 # 4. Logs & Expérimentations (Tracking)
 # ==========================================
+experiments/
 logs/
 *.log
 tb_logs/
