@@ -18,3 +18,4 @@ repos:
     rev: 0.8.1
     hooks:
       - id: nbstripout
+        args: [ "--extra-keys=\"metadata.kernelspec\"" ]

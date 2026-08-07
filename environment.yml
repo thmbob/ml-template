@@ -30,4 +30,4 @@ dependencies:
   - pre-commit
   - pip
   - pip:
-      - -e .             #
+      - -e .

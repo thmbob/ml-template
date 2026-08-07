@@ -60,7 +60,7 @@ lightning_logs/
 /build/
 dist/
 *.egg-info/
-ml-template.zip
+*.zip
 
 # ==========================================
 # 7. OS & Éditeurs
