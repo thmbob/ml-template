@@ -23,12 +23,14 @@ htmlcov/
 # 3. Machine Learning (Données & Modèles)
 # ==========================================
 # Ne jamais versionner les datasets bruts ou traités
-data/
-datasets/
+/data/
+/datasets/
+!/data/sample/
+!/datasets/sample/
 
 # Ne jamais versionner les poids des modèles
-models/
-checkpoints/
+/models/
+/checkpoints/
 *.pt
 *.pth
 *.h5
@@ -55,7 +57,7 @@ lightning_logs/
 # ==========================================
 # 6. Build & Packaging
 # ==========================================
-build/
+/build/
 dist/
 *.egg-info/
 

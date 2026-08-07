@@ -1,17 +1,14 @@
 channels:
-  - pytorch
-  - nvidia
-  - pyg
   - conda-forge
-  - defaults
+
 dependencies:
   - python=3.10
   # Machine Learning & GPU
   - pytorch
   - torchvision
   - torchaudio
-  - pytorch-cuda=12.1
-  - pyg
+  - pytorch-gpu
+  - pytorch_geometric
   # Data & Math
   - numpy
   - pandas
@@ -31,3 +28,6 @@ dependencies:
   - ruff
   - mypy
   - pre-commit
+  - pip
+  - pip:
+      - -e .             #

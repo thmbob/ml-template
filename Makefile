@@ -19,7 +19,7 @@ lint:
 	conda run -p ./.conda mypy src/
 
 train:
-	conda run -p ./.conda python src/mon_projet_ml/train.py
+	conda run --no-capture-output -p ./.conda python src/mon_projet_ml/train.py
 
 test:
 	conda run -p ./.conda pytest tests/
