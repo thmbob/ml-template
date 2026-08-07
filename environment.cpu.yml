@@ -1,0 +1,11 @@
+channels:
+  - conda-forge
+
+# Pile PyTorch, variante CPU.
+# Utilisée sur les machines sans GPU NVIDIA (dont macOS) et en CI.
+dependencies:
+  - pytorch>=2.5,<3
+  - pytorch-cpu
+  - torchvision>=0.20,<1
+  - torchaudio>=2.5,<3
+  - pytorch_geometric>=2.6,<3

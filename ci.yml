@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# Annule les runs obsolètes quand on pousse plusieurs fois d'affilée
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Rapide (~30 s) : rejoue les hooks git sur tout le dépôt.
+  # Attrape le formatage, les imports mal triés et les notebooks non nettoyés.
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - uses: pre-commit/action@v3.0.1
+
+  # Plus lent : construit l'environnement complet en variante CPU
+  # (les runners GitHub n'ont pas de GPU) puis lance mypy et pytest.
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -el {0}   # -l pour que l'environnement conda soit activé
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-file: environment.cpu.yml
+          environment-name: ci
+          cache-environment: true
+
+      - name: Ajouter la base commune
+        run: micromamba install -y -n ci -f environment.yml
+
+      - name: Installer le package
+        run: pip install -e . --no-deps
+
+      # CONDA_RUN= : l'environnement est déjà actif, pas de `conda run` à préfixer
+      - name: Lint et types
+        run: make lint CONDA_RUN=
+
+      - name: Tests
+        run: make test CONDA_RUN=

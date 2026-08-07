@@ -1,0 +1,14 @@
+channels:
+  - conda-forge
+
+# Pile PyTorch, variante CUDA.
+# `pytorch-gpu` est un métapaquet : il ne contient rien, il force
+# le solveur à retenir le build CUDA de pytorch plutôt que le build CPU.
+dependencies:
+  - pytorch>=2.5,<3
+  - pytorch-gpu
+  - torchvision>=0.20,<1
+  - torchaudio>=2.5,<3
+  - pytorch_geometric>=2.6,<3
+  # Décommenter pour cibler une version précise de CUDA :
+  # - cuda-version=12.6

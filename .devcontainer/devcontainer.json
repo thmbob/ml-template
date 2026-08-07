@@ -2,7 +2,10 @@
     "name": "ML Template (Universal)",
     "build": {
         "context": "..",
-        "dockerfile": "docker/Dockerfile"
+        "dockerfile": "docker/Dockerfile",
+        "args": {
+            "ACCEL": "cpu"
+        }
     },
     "forwardPorts": [
         8888,
@@ -32,5 +35,6 @@
             ]
         }
     },
-    "remoteUser": "root"
+    "remoteUser": "vscode",
+    "postCreateCommand": "pre-commit install"
 }
