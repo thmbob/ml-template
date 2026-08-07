@@ -1,13 +1,14 @@
+from pathlib import Path
+
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from sklearn.datasets import make_moons
+from sklearn.model_selection import train_test_split
+from torch.utils.data import DataLoader, TensorDataset
+
+
 def main() -> None:
-    from pathlib import Path
-
-    import torch
-    import torch.nn as nn
-    import torch.optim as optim
-    from sklearn.datasets import make_moons
-    from sklearn.model_selection import train_test_split
-    from torch.utils.data import DataLoader, TensorDataset
-
     # Chemins relatifs basés sur la structure du projet
     BASE_DIR = Path(__file__).resolve().parent.parent.parent
     DATA_DIR = BASE_DIR / "data"
